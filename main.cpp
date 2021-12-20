@@ -90,24 +90,6 @@ int main(int argc, char** argv) {
         $(fcntl(connect_arr[i].send_fd, F_SETFL, O_NONBLOCK))
     }
 
-/*
-    fprintf(stderr, "ufdsW:[");
-    for (int i = 0; i < num_child; ++i) {
-        fprintf(stderr, "%d ", ufdsW[i]);
-    }
-    fprintf(stderr, "]\n");
-
-    fprintf(stderr, "ufdsR:[");
-    for (int i = 0; i < num_child; ++i) {
-        fprintf(stderr, "%d ", ufdsR[i]);
-    }
-    fprintf(stderr, "]\n");
-
-    fprintf(stderr, ">>>>>>>>>>>Parrent start work\n");
-
-    print_all_buffers(connect_arr, num_child);
-*/
-
     int num_dead = 0;
     struct Ufds_t ufds = {(pollfd*) calloc(2*num_child, sizeof(struct pollfd)),
                           (size_t*) calloc(2*num_child, sizeof(size_t)),
