@@ -107,7 +107,7 @@ void load_to_buff(struct Connection_t* buff) {
         return;
     }
 
-    while (buff->size != buff->capacity) {
+    if (buff->size != buff->capacity) {
         if (buff->offset_end == buff->buff + buff->capacity) {
             buff->offset_end = buff->buff;
         }
